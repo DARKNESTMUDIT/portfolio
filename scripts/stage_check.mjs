@@ -12,7 +12,9 @@ const errors = []
 page.on('console', (m) => m.type() === 'error' && errors.push(m.text().slice(0, 200)))
 page.on('pageerror', (e) => errors.push('PAGEERROR: ' + String(e).slice(0, 200)))
 
-await page.goto('http://localhost:5199', { waitUntil: 'domcontentloaded' })
+await page.goto(process.env.SITE_URL || 'http://localhost:5199', {
+  waitUntil: 'domcontentloaded',
+})
 await page.waitForTimeout(6000)
 
 const fracs = (process.env.FRACS || '0,0.4,0.7,0.85,0.99').split(',').map(Number)

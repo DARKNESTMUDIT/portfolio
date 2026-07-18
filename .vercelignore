@@ -1,0 +1,5 @@
+# local reference material — never part of the deploy
+*.mov
+session-handoff-SKILL.md
+# root input doc (the served copy is public/assets/CV.pdf)
+/CV.pdf
